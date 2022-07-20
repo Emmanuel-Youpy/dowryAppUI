@@ -14,7 +14,7 @@ const QuickFeatures = ({ icon, title }) => {
       }}
     >
       <Text>{icon}</Text>
-      <Text style={{ marginTop: 14 }}>{title}</Text>
+      <Text style={{ marginTop: 14, fontSize: 12 }}>{title}</Text>
     </View>
   );
 };

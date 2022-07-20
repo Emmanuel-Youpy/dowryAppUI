@@ -1,23 +1,50 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
-import Onboarding from "../components/Onboarding";
-// const carouselItem = require("../assets/carousel.json");
-// import { SliderBox } from "react-native-image-slider-box";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// interface CarouselItems {
-//     title: string;
-//     desc:string;
-//     uri:string;
-// }
-
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
-    <SafeAreaView
-    //   style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-    >
-      <Onboarding />
-      <View>
-        <Text>Logifffdn</Text>
+    <SafeAreaView>
+      <View style={{ padding: 20, alignItems: "center" }}>
+        {/* <Home /> */}
+        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <View
+            style={{
+              backgroundColor: "#0E60E2",
+              width: 350,
+              height: 70,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 15,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 25 }}>REGISTER</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View
+            style={{
+              marginTop: 20,
+              backgroundColor: "white",
+              width: 350,
+              height: 70,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 15,
+              borderWidth: 1,
+              borderColor: "#0E60E2",
+            }}
+          >
+            <Text style={{ color: "black", fontSize: 25 }}>REGISTER</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

@@ -1,15 +1,52 @@
-import React from "react";
-import { View, Text, FlatList, StyleSheet, Animated } from "react-native";
-import LoginScreen from "../screens/LoginScreen";
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  FlatList,
+  Animated,
+} from "react-native";
+import CarouselItem from "./CarouselItem";
 
-const { width, height } = Dimensions.get("window");
+const { width, heigth } = Dimensions.get("window");
+let flatList;
 
-const CarouselItem = ({ data }) => {
+function infiniteScroll(dataList) {
+  const numberOfData = dataList.length;
+  let scrollValue = 0,
+    scrolled = 1;
+
+  setInterval(function () {
+    scrolled++;
+    if (scrolled < numberOfData) scrollValue = scrollValue + width;
+    else {
+      scrollValue = 0;
+      scrolled = 0;
+    }
+
+    this.flatList.scrollToOffset({ animated: true, offset: scrollValue });
+  }, 3000);
+}
+
+const Carousel = ({ data }) => {
+  const scrollX = new Animated.Value(0);
+  let position = Animated.divide(scrollX, width);
+  const [dataList, setDataList] = useState(data);
+
+  useEffect(() => {
+    setDataList(data);
+    infiniteScroll(dataList);
+  });
+
   if (data && data.length) {
     return (
       <View>
         <FlatList
           data={data}
+          ref={(flatList) => {
+            this.flatList = flatList;
+          }}
           keyExtractor={(item, index) => "key" + index}
           horizontal
           pagingEnabled
@@ -19,7 +56,7 @@ const CarouselItem = ({ data }) => {
           decelerationRate={"fast"}
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => {
-            return <LoginScreen item={item} />;
+            return <CarouselItem item={item} />;
           }}
           onScroll={Animated.event([
             { nativeEvent: { contentOffset: { x: scrollX } } },
@@ -40,7 +77,7 @@ const CarouselItem = ({ data }) => {
                   opacity,
                   height: 10,
                   width: 10,
-                  background: "red",
+                  backgroundColor: "#595959",
                   margin: 8,
                   borderRadius: 5,
                 }}
@@ -51,6 +88,7 @@ const CarouselItem = ({ data }) => {
       </View>
     );
   }
+
   console.log("Please provide Images");
   return null;
 };
@@ -59,4 +97,4 @@ const styles = StyleSheet.create({
   dotView: { flexDirection: "row", justifyContent: "center" },
 });
 
-export default CarouselItem;
+export default Carousel;

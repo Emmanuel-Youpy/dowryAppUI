@@ -1,10 +1,23 @@
 import React from "react";
-import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  Touchable,
+} from "react-native";
 import { UserIcon } from "@heroicons/react/solid";
 import { FontAwesome } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import QuickFeatures from "../components/QuickFeatures";
+import QuickFeatures from "../component/QuickFeatures";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import Home from "./Home";
+
 const HomeScreen = () => {
   function renderHeader() {
     return (
@@ -67,122 +80,243 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView>
-      {/* Header */}
-      <View>
-        {renderHeader()}
-        {renderBanner()}
-        {/* Tags */}
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              paddingTop: 10,
-              margin: 20,
-              backgroundColor: "gray",
-              width: "40%",
-              padding: 15,
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 15,
-              backgroundColor: "#cefad0",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <Text>Top Wallet</Text>
-            <Fontisto name="wallet" size={20} color="green" />
-          </TouchableOpacity>
-          {/* 2 */}
-          <TouchableOpacity
-            style={{
-              paddingTop: 10,
-              margin: 20,
-              backgroundColor: "gray",
-              width: "40%",
-              padding: 15,
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 15,
-              backgroundColor: "#FFE0DA",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <Text>Pay With Phone</Text>
-            <Ionicons name="phone-portrait-sharp" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* Header */}
         <View>
-          <Text
-            style={{
-              fontSize: 22,
-              fontWeight: "bold",
-              padding: 25,
-            }}
-          >
-            Quick Features
-          </Text>
+          {renderHeader()}
+          {renderBanner()}
+
+          {/* Tags */}
           <View
             style={{
-              margin: 20,
               flexDirection: "row",
-              justifyContent: "space-between",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <QuickFeatures
-              icon={
-                <Ionicons name="phone-portrait-sharp" size={24} color="black" />
-              }
-              title="Transfer"
-            />
-            <QuickFeatures
-              icon={
-                <Ionicons name="phone-portrait-sharp" size={24} color="black" />
-              }
-              title="Transfer"
-            />
-            <QuickFeatures
-              icon={
-                <Ionicons name="phone-portrait-sharp" size={24} color="black" />
-              }
-              title="Transfer"
-            />
+            <TouchableOpacity
+              style={{
+                paddingTop: 10,
+                margin: 20,
+                backgroundColor: "gray",
+                width: "40%",
+                padding: 15,
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 15,
+                backgroundColor: "#cefad0",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text>Top Wallet</Text>
+              <Fontisto name="wallet" size={20} color="green" />
+            </TouchableOpacity>
+            {/* 2 */}
+            <TouchableOpacity
+              style={{
+                paddingTop: 10,
+                margin: 20,
+                backgroundColor: "gray",
+                width: "40%",
+                padding: 15,
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 15,
+                backgroundColor: "#FFE0DA",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text>Pay With Phone</Text>
+              <Ionicons name="phone-portrait-sharp" size={24} color="black" />
+            </TouchableOpacity>
           </View>
-          {/* pt2 */}
-          <View
-            style={{
-              margin: 20,
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <QuickFeatures
-              icon={
-                <Ionicons name="phone-portrait-sharp" size={24} color="black" />
-              }
-              title="Transfer"
-            />
-            <QuickFeatures
-              icon={
-                <Ionicons name="phone-portrait-sharp" size={24} color="black" />
-              }
-              title="Transfer"
-            />
-            <QuickFeatures
-              icon={
-                <Ionicons name="phone-portrait-sharp" size={24} color="black" />
-              }
-              title="Transfer"
-            />
+          <View>
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: "bold",
+                padding: 25,
+              }}
+            >
+              Quick Features
+            </Text>
+            <View
+              style={{
+                margin: 20,
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <MaterialCommunityIcons
+                      name="bank-transfer"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Transfer"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <MaterialCommunityIcons
+                      name="map-marker-radius-outline"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Map"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <MaterialCommunityIcons
+                      name="ticket-percent-outline"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Redeem Tickets"
+                />
+              </TouchableOpacity>
+            </View>
+            {/* pt2 */}
+            <View
+              style={{
+                margin: 20,
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <MaterialCommunityIcons
+                      name="history"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="History"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <MaterialIcons
+                      name="sticky-note-2"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Traffic Report"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <MaterialIcons
+                      name="compare-arrows"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Bank Log"
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          {/* Banner */}
+          <View style={{ padding: 20, alignItems: "center" }}>
+            <TouchableOpacity>
+              <Image
+                style={{ height: 70, width: 370, borderRadius: 10 }}
+                source={{
+                  uri:
+                    "https://www.wordstream.com/wp-content/uploads/2021/07/banner-ads-examples-ncino.jpg",
+                }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: "bold",
+                padding: 25,
+              }}
+            >
+              Other Services
+            </Text>
+            <View
+              style={{
+                margin: 20,
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <MaterialIcons
+                      name="phone-android"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Buy Airtime"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <FontAwesome name="calendar" size={35} color="#0E60E2" />
+                  }
+                  title="Inter State"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <FontAwesome5
+                      name="money-bill-wave"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Merchant Pay"
+                />
+              </TouchableOpacity>
+            </View>
+            <View
+              style={{
+                margin: 20,
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <TouchableOpacity>
+                <QuickFeatures
+                  icon={
+                    <FontAwesome5
+                      name="calendar-day"
+                      size={35}
+                      color="#0E60E2"
+                    />
+                  }
+                  title="Transfer"
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
-      {/* Banner */}
+      </ScrollView>
     </SafeAreaView>
   );
 };
