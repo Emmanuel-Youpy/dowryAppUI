@@ -1,25 +1,57 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, Component } from "react";
 import {
   View,
   Text,
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  Alert,
+  Touchable,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 
 const RegisterScreen = ({ navigation }) => {
-  const [text, setText] = useState("");
+  // export default class RegisterScreen extends Component {
+  //   createTwoButtonAlert = () =>
+  //     Alert.alert("Alert Title", "My Alert Msg", [
+  //       {
+  //         text: "Cancel",
+  //         onPress: () => console.log("Cancel Pressed"),
+  //         style: "cancel",
+  //       },
+  //       { text: "OK", onPress: () => console.log("OK Pressed") },
+  //     ]);
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {
+  //       number: "",
+  //     };
+  //   }
+  //   // const [text, setText] = useState("");
 
-  const isFormValid = useMemo(() => {
-    return text.length > 0;
-  }, [text.text]);
+  //   validate_fiel = () => {
+  //     const { username } = this.state;
+  //     if (number == "") {
+  //       alert("Please fill username");
+  //       return false;
+  //     }
+  //     return true;
+  //   };
+
+  //   // Conditional Click
+
+  //   making_call = () => {
+  //     if (this.validate_fiel()) {
+  //       alert("Successfull");
+  //     }
+  //   };
+  //   render({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ padding: 20 }}>
-        <View>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={30} color="#0E60E2" />
           <Text
             style={{
@@ -31,7 +63,7 @@ const RegisterScreen = ({ navigation }) => {
           >
             Dowry
           </Text>
-        </View>
+        </TouchableOpacity>
         <View style={{ marginTop: 270 }}>
           <Text style={{ fontSize: 18 }}>Phone Number</Text>
           <View>
@@ -48,26 +80,26 @@ const RegisterScreen = ({ navigation }) => {
               }}
               placeholder="Phone Number"
               keyboardType="numeric"
-              value={text}
-              onChangeText={setText}
+              onChangeText={(value) => this.setState({ number: value })}
             />
           </View>
-          <TouchableOpacity disabled={!isFormValid}>
-            <View
-              style={{
-                height: 50,
-                width: 390,
-                margin: 12,
-                borderRadius: 10,
-                borderWidth: 1,
-                borderColor: "gray",
-                padding: 10,
-                left: -13,
-                backgroundColor: "#0E60E2",
-              }}
-            >
-              <Text style={{ color: "white", fontSize: 18 }}>CONFIRM</Text>
-            </View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Home")}
+            // onPress={() => this.making_call}
+            style={{
+              height: 50,
+              width: 390,
+              margin: 12,
+              borderRadius: 10,
+              borderWidth: 1,
+              borderColor: "gray",
+              padding: 10,
+              left: -13,
+              backgroundColor: "#0E60E2",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 18 }}>CONFIRM</Text>
           </TouchableOpacity>
         </View>
       </View>

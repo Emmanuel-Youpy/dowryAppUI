@@ -13,7 +13,6 @@ const LoginScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
       <View style={{ padding: 20, alignItems: "center" }}>
-        {/* <Home /> */}
         <TouchableOpacity onPress={() => navigation.navigate("Register")}>
           <View
             style={{
@@ -28,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
             <Text style={{ color: "white", fontSize: 25 }}>REGISTER</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Logiin")}>
           <View
             style={{
               marginTop: 20,
@@ -42,7 +41,7 @@ const LoginScreen = ({ navigation }) => {
               borderColor: "#0E60E2",
             }}
           >
-            <Text style={{ color: "black", fontSize: 25 }}>REGISTER</Text>
+            <Text style={{ color: "black", fontSize: 25 }}>LOGIN</Text>
           </View>
         </TouchableOpacity>
       </View>
