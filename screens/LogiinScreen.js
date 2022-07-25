@@ -87,7 +87,7 @@ const LogiinScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
+            onPress={() => navigation.navigate("Mytabs")}
             // onPress={() => this.making_call}
             style={{
               height: 50,

@@ -2,13 +2,17 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 // import LoginScreens from "./screens/LoginScreens";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import LogiinScreen from "./screens/LogiinScreen";
+import MyTabs from "./navigation/MyTabs";
 
 const Stack = createNativeStackNavigator();
+// const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
@@ -30,8 +34,8 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="Mytabs"
+          component={MyTabs}
           options={{ title: "Overview" }}
           options={{
             headerShown: false,

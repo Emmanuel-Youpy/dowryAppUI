@@ -52,7 +52,7 @@ const RegisterScreen = ({ navigation }) => {
     <SafeAreaView>
       <View style={{ padding: 20 }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={30} color="#0E60E2" />
+          <Ionicons name="arrow-back" size={30} color="black" />
           <Text
             style={{
               paddingTop: 20,
@@ -84,7 +84,7 @@ const RegisterScreen = ({ navigation }) => {
             />
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
+            onPress={() => navigation.navigate("Mytabs")}
             // onPress={() => this.making_call}
             style={{
               height: 50,
@@ -101,6 +101,24 @@ const RegisterScreen = ({ navigation }) => {
           >
             <Text style={{ color: "white", fontSize: 18 }}>CONFIRM</Text>
           </TouchableOpacity>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                color: "gray",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              A one time verification code will be sent to you in order to
+              verify your account.
+            </Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>
