@@ -10,6 +10,8 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import LogiinScreen from "./screens/LogiinScreen";
 import MyTabs from "./navigation/MyTabs";
+import CardTransaction from "./screens/CardTransaction";
+import WalletTransactions from "./screens/WalletTransactions";
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -48,6 +50,26 @@ export default function App() {
           options={{
             headerShown: false,
           }}
+        />
+        <Stack.Screen
+          name="Card Transactions"
+          component={CardTransaction}
+          options={{ title: "Overview" }}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Wallet Transactions"
+          component={WalletTransactions}
+          options={{ title: "Overview" }}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
         />
       </Stack.Navigator>
     </NavigationContainer>
