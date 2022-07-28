@@ -18,7 +18,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Home from "./Home";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   function renderHeader() {
     return (
       <View
@@ -108,6 +108,7 @@ const HomeScreen = () => {
                 flexDirection: "row",
                 justifyContent: "space-between",
               }}
+              onPress={() => navigation.navigate("HomeMode")}
             >
               <Text>Top Wallet</Text>
               <Fontisto name="wallet" size={20} color="green" />

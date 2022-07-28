@@ -12,6 +12,8 @@ import LogiinScreen from "./screens/LogiinScreen";
 import MyTabs from "./navigation/MyTabs";
 import CardTransaction from "./screens/CardTransaction";
 import WalletTransactions from "./screens/WalletTransactions";
+import HistoryScreen from "./screens/HistoryScreen";
+import HomeModeScreen from "./screens/HomeModeScreen";
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -70,6 +72,24 @@ export default function App() {
               // headerShown: false,
             }
           }
+        />
+        <Stack.Screen
+          name="History"
+          component={HistoryScreen}
+          options={{ title: "Overview" }}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="HomeMode"
+          component={HomeModeScreen}
+          options={{
+            headerShown: false,
+            presentation: "modal",
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

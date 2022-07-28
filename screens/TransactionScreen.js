@@ -63,6 +63,7 @@ const TransactionScreen = ({ navigation }) => {
         <TransactionSubs
           icon2={<FontAwesome name="history" size={34} color="#0E60E2" />}
           title2="Bus History"
+          onPress={() => navigation.navigate("History")}
         />
       </View>
     </View>
