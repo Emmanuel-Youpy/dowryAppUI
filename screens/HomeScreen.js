@@ -128,6 +128,7 @@ const HomeScreen = ({ navigation }) => {
                 flexDirection: "row",
                 justifyContent: "space-between",
               }}
+              onPress={() => navigation.navigate("PayPhone")}
             >
               <Text>Pay With Phone</Text>
               <Ionicons name="phone-portrait-sharp" size={24} color="black" />
@@ -150,7 +151,7 @@ const HomeScreen = ({ navigation }) => {
                 justifyContent: "space-between",
               }}
             >
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Transfer")}>
                 <QuickFeatures
                   icon={
                     <MaterialCommunityIcons
@@ -162,7 +163,7 @@ const HomeScreen = ({ navigation }) => {
                   title="Transfer"
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Map")}>
                 <QuickFeatures
                   icon={
                     <MaterialCommunityIcons

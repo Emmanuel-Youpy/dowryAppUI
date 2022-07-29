@@ -14,6 +14,9 @@ import CardTransaction from "./screens/CardTransaction";
 import WalletTransactions from "./screens/WalletTransactions";
 import HistoryScreen from "./screens/HistoryScreen";
 import HomeModeScreen from "./screens/HomeModeScreen";
+import PayPhoneScreen from "./screens/PayPhoneScreen";
+import TransferScreen from "./screens/TransferScreen";
+import MapScreen from "./screens/MapScreen";
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -90,6 +93,33 @@ export default function App() {
             headerShown: false,
             presentation: "modal",
           }}
+        />
+        <Stack.Screen
+          name="PayPhone"
+          component={PayPhoneScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Transfer"
+          component={TransferScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Map"
+          component={MapScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
         />
       </Stack.Navigator>
     </NavigationContainer>
