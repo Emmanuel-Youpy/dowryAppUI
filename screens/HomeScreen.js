@@ -175,7 +175,7 @@ const HomeScreen = ({ navigation }) => {
                   title="Map"
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Ticket")}>
                 <QuickFeatures
                   icon={
                     <MaterialCommunityIcons
@@ -196,7 +196,7 @@ const HomeScreen = ({ navigation }) => {
                 justifyContent: "space-between",
               }}
             >
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("History")}>
                 <QuickFeatures
                   icon={
                     <MaterialCommunityIcons
@@ -208,7 +208,7 @@ const HomeScreen = ({ navigation }) => {
                   title="History"
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Traffic")}>
                 <QuickFeatures
                   icon={
                     <MaterialIcons
@@ -220,7 +220,7 @@ const HomeScreen = ({ navigation }) => {
                   title="Traffic Report"
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Bank Log")}>
                 <QuickFeatures
                   icon={
                     <MaterialIcons
@@ -263,7 +263,7 @@ const HomeScreen = ({ navigation }) => {
                 justifyContent: "space-between",
               }}
             >
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Airtime")}>
                 <QuickFeatures
                   icon={
                     <MaterialIcons
@@ -275,7 +275,9 @@ const HomeScreen = ({ navigation }) => {
                   title="Buy Airtime"
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("InterState")}
+              >
                 <QuickFeatures
                   icon={
                     <FontAwesome name="calendar" size={35} color="#0E60E2" />

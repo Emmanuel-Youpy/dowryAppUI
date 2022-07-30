@@ -1,32 +1,41 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Alert, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
-const HistoryScreen = ({ navigation }) => {
+const createOneButtonAlert = () =>
+  Alert.alert("Pending....", "Will be made available shortly", [
+    {
+      text: "OK",
+      style: "Ok",
+    },
+  ]);
+
+const InterStateScreen = ({ navigation }) => {
   return (
     <View style={{ justifyContent: "center", alignItems: "center" }}>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Wallet Transactions")}
+        onPress={createOneButtonAlert}
         style={{
           width: "90%",
-          backgroundColor: "#D1E7EE",
+          backgroundColor: "#fbf0f4",
           height: 170,
           borderRadius: 10,
           marginTop: 30,
         }}
       >
         <View style={{ padding: 25 }}>
-          <Ionicons name="wallet-outline" size={24} color="#0E60E2" />
+          <Feather name="smartphone" size={24} color="pink" />
           <Text
             style={{
-              color: "#0E60E2",
+              color: "black",
               fontSize: 18,
               fontWeight: "bold",
               paddingTop: 20,
             }}
           >
-            Wallet Bus Transactions
+            Inter State Bookings
           </Text>
           <View
             style={{
@@ -34,33 +43,33 @@ const HistoryScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ color: "black", fontSize: 14 }}>
-              View all your wallet transactions for all trips
+              Book your inter state bus ticket before hand{" "}
             </Text>
           </View>
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate("Wallet Transactions")}
+        onPress={() => navigation.navigate("Booking")}
         style={{
           width: "90%",
-          backgroundColor: "#D1E7EE",
+          backgroundColor: "lightgray",
           height: 170,
           borderRadius: 10,
           marginTop: 30,
         }}
       >
         <View style={{ padding: 25 }}>
-          <AntDesign name="creditcard" size={24} color="#0E60E2" />
+          <Fontisto name="spinner-refresh" size={24} color="green" />
           <Text
             style={{
-              color: "#0E60E2",
+              color: "green",
               fontSize: 18,
               fontWeight: "bold",
               paddingTop: 20,
             }}
           >
-            Card Bus Transactions
+            Booking Transactions
           </Text>
           <View
             style={{
@@ -68,7 +77,7 @@ const HistoryScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ color: "black", fontSize: 14 }}>
-              View all your card bus transactions for all each cards
+              View all inter state booking transactions
             </Text>
           </View>
         </View>
@@ -77,4 +86,4 @@ const HistoryScreen = ({ navigation }) => {
   );
 };
 
-export default HistoryScreen;
+export default InterStateScreen;

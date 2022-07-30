@@ -17,6 +17,12 @@ import HomeModeScreen from "./screens/HomeModeScreen";
 import PayPhoneScreen from "./screens/PayPhoneScreen";
 import TransferScreen from "./screens/TransferScreen";
 import MapScreen from "./screens/MapScreen";
+import RedeemTicketScreen from "./screens/RedeemTicketScreen";
+import TrafficReport from "./screens/TrafficReport";
+import BankLog from "./screens/BankLog";
+import AirtimeScreen from "./screens/AirtimeScreen";
+import InterStateScreen from "./screens/InterStateScreen";
+import BookingTransaction from "./screens/BookingTransaction";
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -115,6 +121,60 @@ export default function App() {
         <Stack.Screen
           name="Map"
           component={MapScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Ticket"
+          component={RedeemTicketScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Traffic"
+          component={TrafficReport}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Bank Log"
+          component={BankLog}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Airtime"
+          component={AirtimeScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="InterState"
+          component={InterStateScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Booking"
+          component={BookingTransaction}
           options={
             {
               // headerShown: false,
