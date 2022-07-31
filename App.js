@@ -23,6 +23,8 @@ import BankLog from "./screens/BankLog";
 import AirtimeScreen from "./screens/AirtimeScreen";
 import InterStateScreen from "./screens/InterStateScreen";
 import BookingTransaction from "./screens/BookingTransaction";
+import MerchantPayScreen from "./screens/MerchantPayScreen";
+import CharterScreen from "./screens/CharterScreen";
 
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -175,6 +177,24 @@ export default function App() {
         <Stack.Screen
           name="Booking"
           component={BookingTransaction}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Merchant"
+          component={MerchantPayScreen}
+          options={
+            {
+              // headerShown: false,
+            }
+          }
+        />
+        <Stack.Screen
+          name="Charter"
+          component={CharterScreen}
           options={
             {
               // headerShown: false,

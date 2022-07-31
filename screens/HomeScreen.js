@@ -285,7 +285,7 @@ const HomeScreen = ({ navigation }) => {
                   title="Inter State"
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Merchant")}>
                 <QuickFeatures
                   icon={
                     <FontAwesome5
@@ -305,7 +305,7 @@ const HomeScreen = ({ navigation }) => {
                 justifyContent: "space-between",
               }}
             >
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("Charter")}>
                 <QuickFeatures
                   icon={
                     <FontAwesome5
@@ -314,7 +314,7 @@ const HomeScreen = ({ navigation }) => {
                       color="#0E60E2"
                     />
                   }
-                  title="Transfer"
+                  title="Charter"
                 />
               </TouchableOpacity>
             </View>
