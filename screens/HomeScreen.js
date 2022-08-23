@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,8 @@ import {
   Image,
   ScrollView,
   Touchable,
+  Animated,
+  Dimensions,
 } from "react-native";
 import { UserIcon } from "@heroicons/react/solid";
 import { FontAwesome } from "@expo/vector-icons";
@@ -17,8 +19,24 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Home from "./Home";
+import constants from "../constants/constants";
+import Walkthrough3 from "../component/WalkThrough3";
+import BannerSlider1 from "../component/BannerSlider1";
+import BannerSlider2 from "../component/BannerSlider2";
+
+const { width, height } = Dimensions.get("window");
+const dark08Color = "rgba(13, 15, 35, 0.08)";
+const primaryColor = "rgba(78, 85, 175, 1)";
+const primaryColor08 = "rgba(78, 85, 175, 0.08)";
 
 const HomeScreen = ({ navigation }) => {
+  const [walkthrough2Animated, setWalkthrough2Animated] = useState(false);
+  const onViewChangeRef = React.useRef(({ viewableItems, changed }) => {
+    if (viewableItems[0].index == 1) {
+      setWalkthrough2Animated(true);
+    }
+  });
+  const scrollX = new Animated.Value(0);
   function renderHeader() {
     return (
       <View
@@ -33,6 +51,120 @@ const HomeScreen = ({ navigation }) => {
           Hello <Text style={{ fontWeight: "bold", fontSize: 20 }}>Youpil</Text>
         </Text>
         <FontAwesome name="user-circle" size={45} color="#0E60E2" />
+      </View>
+    );
+  }
+
+  // Dots
+  const Dots = () => {
+    const dotPosition = Animated.divide(scrollX, width);
+    return (
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {constants.dots.map((item, index) => {
+          // Animating the dots
+          const dotColor = dotPosition.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: ["grey", "white", "grey"],
+            extrapolate: "clamp",
+          });
+          return (
+            <Animated.View
+              key={`dot-${index}`}
+              style={{
+                borderRadius: 5,
+                marginHorizontal: 6,
+                width: 10,
+                height: 10,
+                backgroundColor: dotColor,
+              }}
+            />
+          );
+        })}
+      </View>
+    );
+  };
+
+  function renderFooter() {
+    return (
+      <View
+        style={{
+          // position: "absolute",
+          // bottom: 0,
+          // left: 0,
+          // right: 0,
+          height: height * 0.1,
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingHorizontal: 10,
+          marginTop: -43,
+          paddingVertical: height > 700 ? 10 : 20,
+        }}
+      >
+        <Dots />
+      </View>
+    );
+  }
+
+  // Render Banner Slider
+  function renderBanner1() {
+    return (
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Animated.FlatList
+          data={constants.dots}
+          keyExtractor={(item) => item.id}
+          horizontal
+          snapToInterval={width}
+          decelerationRate="fast"
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={16}
+          onViewableItemsChanged={onViewChangeRef.current}
+          onScroll={Animated.event(
+            [
+              {
+                nativeEvent: { contentOffset: { x: scrollX } },
+              },
+            ],
+            {
+              useNativeDriver: false,
+            }
+          )}
+          renderItem={({ item, index }) => {
+            return (
+              <View
+                style={{
+                  width: width,
+                  justifyContent: "center",
+                  marginTop: -30,
+                }}
+              >
+                {/* Img */}
+                <View style={{}}>
+                  {index == 0 && <BannerSlider1 />}
+                  {index == 1 && <BannerSlider2 />}
+                </View>
+
+                {/* Text Dots */}
+                <View
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    paddingHorizontal: 10,
+                  }}
+                >
+                  <Text>{item.dots}</Text>
+                </View>
+                {/* Walkimag */}
+              </View>
+            );
+          }}
+        />
+        {renderFooter()}
       </View>
     );
   }
@@ -84,7 +216,9 @@ const HomeScreen = ({ navigation }) => {
         {/* Header */}
         <View>
           {renderHeader()}
-          {renderBanner()}
+
+          {renderBanner1()}
+          {/* {renderBanner()} */}
 
           {/* Tags */}
           <View
@@ -92,6 +226,7 @@ const HomeScreen = ({ navigation }) => {
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "center",
+              marginTop: -65,
             }}
           >
             <TouchableOpacity

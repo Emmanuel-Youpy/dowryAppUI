@@ -4,6 +4,17 @@ const { width, height } = Dimensions.get("window");
 
 const SIZES = { width, height };
 
+const dots = [
+  {
+    id: 0,
+    title: "",
+  },
+  {
+    id: 1,
+    title: "",
+  },
+];
+
 const walkthrough = [
   {
     id: 0,
@@ -27,4 +38,4 @@ const walkthrough = [
   },
 ];
 
-export default { walkthrough, SIZES };
+export default { walkthrough, SIZES, dots };

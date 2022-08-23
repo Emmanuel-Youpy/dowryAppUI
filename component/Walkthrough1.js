@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 
 const Walkthrough1 = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: "red" }}>
+    <View style={{ flex: 1, backgroundColor: "" }}>
       <Image
         source={require("../assets/images/loading1.png")}
         style={{

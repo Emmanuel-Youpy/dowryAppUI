@@ -61,7 +61,7 @@ const TransactionScreen = ({ navigation }) => {
       </View>
       <View style={{ top: 80 }}>
         <TransactionSubs
-          icon2={<FontAwesome name="history" size={34} color="#0E60E2" />}
+          icon2={<MaterialIcons name="history" size={34} color="#0E60E2" />}
           title2="Bus History"
           onPress={() => navigation.navigate("History")}
         />
